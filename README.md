@@ -1,5 +1,7 @@
 # Selenium Test Case for Twitch(WAP)
 
+![Demo](https://github.com/pochun26/twitch-wap-test/blob/main/demo.gif)
+
 ## Test Steps
 1. Go to Twitch
 2. Click in the search icon
@@ -27,6 +29,3 @@ $ pytest
 - twitch/page/search.py: twitch search page function
 - twitch/page/room.py: twitch room page function
 - util.py: save/delete screenshot
-
-## TODO
-- gif
