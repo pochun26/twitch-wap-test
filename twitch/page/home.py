@@ -6,13 +6,15 @@ from selenium.common.exceptions import NoSuchElementException, TimeoutException
 
 class TwitchHomePage(Page):
     def go_home(self):
-        self.driver.get("https://m.twitch.tv/") 
+        self.driver.get("https://m.twitch.tv/")
         self.close_policy_notice()
 
     def close_policy_notice(self):
         try:
-            ele = self.wait.until(lambda x: x.find_element(By.XPATH, f"//*[@data-a-target='tw-core-button-label-text']"))
-            ele.click()
+            ele_modal = self.wait.until(lambda x: x.find_element(By.CLASS_NAME, "tw-modal"))
+            if ele_modal:
+                ele = self.driver.find_element(By.XPATH, f"//*[@data-a-target='tw-core-button-label-text']")
+                ele.click()
         except (NoSuchElementException, TimeoutException):
             pass
 
