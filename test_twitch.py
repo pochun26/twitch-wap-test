@@ -7,7 +7,6 @@ import subprocess
 
 @pytest.fixture
 def driver():
-    recording_process = subprocess.Popen(['ffmpeg', '-y', '-f', 'x11grab', '-s', '2240x1400', '-i', ':0.0', '-r', '30', 'output.mp4'])
     # Change device here
     mobile_emulation = {"deviceName": "iPhone 12 Pro"}
     chrome_options = webdriver.ChromeOptions()
@@ -15,7 +14,6 @@ def driver():
     driver = webdriver.Chrome(options=chrome_options)
     yield driver
     driver.quit()
-    recording_process.terminate()
 
 
 def test_bot_functionality(driver):

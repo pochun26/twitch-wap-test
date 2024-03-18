@@ -12,8 +12,11 @@ def save_screenshot(driver, folder_name="screenshots"):
     full_name = f"{folder_name}/{filename}.png"
     driver.save_screenshot(full_name)
 
-    # Show image
-    img = Image.open(full_name)
+    # show_image(full_name)
+
+
+def show_image(filename):
+    img = Image.open(filename)
     img.show()
     time.sleep(2)
 
