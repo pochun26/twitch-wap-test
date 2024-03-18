@@ -13,8 +13,8 @@ class RoomPage(Page):
                 ele.click()
         except (NoSuchElementException, TimeoutException):
             pass
-    
+
     def if_video_playing(self):
         ele = self.wait.until(lambda x: x.find_element(By.XPATH, f"//video"))
-        result = self.wait.until(lambda x: x.execute_script("return !arguments[0].paused;", ele))
+        result = self.get_wait(10).until(lambda x: x.execute_script("return !arguments[0].paused;", ele))
         return result
